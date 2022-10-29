@@ -69,7 +69,7 @@ stack_t *enqueue(stack_t **queue,  const binary_tree_t *n)
  */
 void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
 {
-	stack_t *queue = malloc(sizeof(stack_t));
+	stack_t *temp, *queue = malloc(sizeof(stack_t));
 
 
 	if (tree == NULL || func == NULL || queue == NULL)
@@ -78,17 +78,19 @@ void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
 	queue->node = (binary_tree_t *)tree;
 	queue->next = NULL;
 	queue->prev = NULL;
-	while (queue != NULL)
+
+	temp = queue;
+	while (temp != NULL)
 	{
-		stack_t *front = queue;
+		stack_t *front = temp;
 		binary_tree_t *current = front->node;
 
 		func(current->n);
 		if (current->left != NULL)
-			enqueue(&queue, current->left);
+			enqueue(&temp, current->left);
 		if (current->right != NULL)
-			enqueue(&queue, current->right);
-		queue = queue->next;
+			enqueue(&temp, current->right);
+		temp = temp->next;
 	}
 	free_queue(queue);
 }
