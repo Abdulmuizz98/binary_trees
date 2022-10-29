@@ -39,6 +39,7 @@ stack_t *enqueue(stack_t **queue,  const binary_tree_t *n)
 		return (NULL);
 	}
 	new_node->node = (binary_tree_t *)n;
+	new_node->next = NULL;
 	if (*queue) /* if head is not null */
 	{
 		/*traverse to the end of the list*/
