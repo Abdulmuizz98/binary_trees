@@ -70,10 +70,13 @@ stack_t *enqueue(stack_t **queue,  const binary_tree_t *n)
  */
 void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
 {
-	stack_t *temp, *queue = malloc(sizeof(stack_t));
+	stack_t *temp, *queue;
 
+	if (tree == NULL || func == NULL)
+		return;
 
-	if (tree == NULL || func == NULL || queue == NULL)
+	queue = malloc(sizeof(stack_t));
+	if (queue == NULL)
 		return;
 
 	queue->node = (binary_tree_t *)tree;
