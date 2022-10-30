@@ -60,6 +60,26 @@ stack_t *enqueue(stack_t **queue,  const binary_tree_t *n)
 	return (new_node);
 }
 
+/**
+ * binary_tree_queue - a queue of binary tree nodes.
+ * @tree: pointer to the root of the tree.
+ *
+ * Return: NULL, if fails.
+ * otherwise, return pointer to the queue;
+ */
+stack_t *binary_tree_queue(const binary_tree_t *tree)
+{
+	stack_t *queue = malloc(sizeof(stack_t));
+
+	if (queue == NULL)
+		return (NULL);
+
+	queue->node = (binary_tree_t *)tree;
+	queue->next = NULL;
+	queue->prev = NULL;
+
+	return (queue);
+}
 
 /**
  * binary_tree_is_complete - level-order traversal of binary tree.
@@ -76,14 +96,7 @@ int binary_tree_is_complete(const binary_tree_t *tree)
 	if (tree == NULL)
 		return (0);
 
-	queue = malloc(sizeof(stack_t));
-	if (queue == NULL)
-		return (0);
-
-	queue->node = (binary_tree_t *)tree;
-	queue->next = NULL;
-	queue->prev = NULL;
-
+	queue = binary_tree_queue(tree);
 	temp = queue;
 	while (temp != NULL)
 	{
@@ -97,14 +110,10 @@ int binary_tree_is_complete(const binary_tree_t *tree)
 				free_queue(queue);
 				return (0);
 			}
-			/*if (current->right == NULL)
-				count++;*/
 			enqueue(&temp, current->left);
 		}
 		else
-		{
 			count++;
-		}
 		if (current->right != NULL)
 		{
 			if (count > 0)
@@ -112,14 +121,10 @@ int binary_tree_is_complete(const binary_tree_t *tree)
 				free_queue(queue);
 				return (0);
 			}
-			/*if (current->left == NULL)
-				return (0);*/
 			enqueue(&temp, current->right);
 		}
 		else
-		{
 			count++;
-		}
 		temp = temp->next;
 	}
 	free_queue(queue);
