@@ -93,7 +93,10 @@ int binary_tree_is_complete(const binary_tree_t *tree)
 		if (current->left != NULL)
 		{
 			if (count > 0)
+			{
+				free_queue(queue);
 				return (0);
+			}
 			/*if (current->right == NULL)
 				count++;*/
 			enqueue(&temp, current->left);
@@ -105,7 +108,10 @@ int binary_tree_is_complete(const binary_tree_t *tree)
 		if (current->right != NULL)
 		{
 			if (count > 0)
+			{
+				free_queue(queue);
 				return (0);
+			}
 			/*if (current->left == NULL)
 				return (0);*/
 			enqueue(&temp, current->right);
