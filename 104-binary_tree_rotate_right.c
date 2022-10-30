@@ -2,7 +2,7 @@
 
 
 /**
- * binary_tree_rotate_left - rotate a binary tree left.
+ * binary_tree_rotate_right - rotate a binary tree right.
  * @tree: pointer to the root of the tree.
  *
  * Return: NULL, if @tree is NULL.
