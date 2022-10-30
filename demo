@@ -1,0 +1,7 @@
+stor roots right in som, root right is null; som = root->right; root->right = NULL;
+store som left ; temp = som->left;
+som's left is now root; som->left = root;
+attatch temp to root right; root->right = temp;
+
+
+return som;
