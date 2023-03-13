@@ -37,11 +37,14 @@ At the end of this project, you are expected to be able to **explain to anyone**
 - All your header files should be include guarded
 
 
-More Info
-Data structures
+## More Info
+
+### Data structures
+
 Please use the following data structures and types for binary trees. Don’t forget to include them in your header file.
 
-Basic Binary Tree
+#### Basic Binary Tree
+```C
 /**
  * struct binary_tree_s - Binary tree node
  *
@@ -59,16 +62,30 @@ struct binary_tree_s
 };
 
 typedef struct binary_tree_s binary_tree_t;
-Binary Search Tree
+```
+
+#### Binary Search Tree
+
+```C
 typedef struct binary_tree_s bst_t;
-AVL Tree
+```
+
+#### AVL Tree
+
+```C
 typedef struct binary_tree_s avl_t;
-Max Binary Heap
+```
+
+#### Max Binary Heap
+
+```C
 typedef struct binary_tree_s heap_t;
+```
 
-Note: For tasks 0 to 23 (included), you have to deal with simple binary trees. They are not BSTs, thus they don’t follow any kind of rule.
+**Note**: For tasks 0 to 23 (included), you have to deal with simple binary trees. They are not BSTs, thus they don’t follow any kind of rule.
 
-Print function
-To match the examples in the tasks, you are given this function
+### Print function
+
+To match the examples in the tasks, you are given [this function](https://github.com/holbertonschool/0x1C.c)
 
 This function is used only for visualization purposes. You don’t have to push it to your repo. It may not be used during the correction
